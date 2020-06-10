@@ -34,7 +34,7 @@ namespace Rollback
         public BroadcastInputFn BroadcastInput;
     }
     
-    public class GameSynchronizer<TGameState, TInputState>
+    public class Session<TGameState, TInputState>
     where TGameState  : struct
     where TInputState : struct, IEquatable<TInputState>
     {
@@ -55,7 +55,7 @@ namespace Rollback
         private int _currentStep;
         private float _updateTimer;
 
-        public GameSynchronizer(SessionSettings settings, SessionCallbacks<TGameState, TInputState> callbacks)
+        public Session(SessionSettings settings, SessionCallbacks<TGameState, TInputState> callbacks)
         {
             _settings = settings;
             _callbacks = callbacks;
